@@ -18,11 +18,16 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent = getIntent();
         sum = intent.getIntExtra("result", 0);
 
+        Bundle bundle = intent.getBundleExtra("cBundle");
+        int x = bundle.getInt("x");
+        int y = bundle.getInt("y");
+        int z = bundle.getInt("z");
         initInstance();
     }
 
     private void initInstance() {
         txtResult = (TextView) findViewById(R.id.txtResult);
         txtResult.setText("Result = " + sum);
+
     }
 }
