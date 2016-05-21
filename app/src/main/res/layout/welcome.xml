@@ -81,24 +81,22 @@
 
         <TextView
             android:id="@+id/txtButtomUp"
+            style="@style/TextViewStyle.Green"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@+id/txtBottom"
             android:layout_marginBottom="16dp"
             android:gravity="center_horizontal"
-            android:text="skip"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
+            android:text="skip" />
 
         <TextView
             android:id="@+id/txtBottom"
+            style="@style/TextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:gravity="center_horizontal"
-            android:text="By continuing, you accept the team of use and Privacy Policy"
-            android:textColor="#ffffff"
-            android:textSize="14sp" />
+            android:text="By continuing, you accept the team of use and Privacy Policy" />
 
 
     </LinearLayout>
