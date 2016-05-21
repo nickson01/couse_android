@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView tvResult;
     Button btnCalculate;
     RadioGroup rbg1;
+    CustomViewGroup viewGroup1;
+    CustomViewGroup viewGroup2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int width = size.x;
         int height = size.y;
         Toast.makeText(MainActivity.this,"x = " + width + "  y = " + height,Toast.LENGTH_LONG).show();
+        viewGroup1 = (CustomViewGroup) findViewById(R.id.ViewGroup1);
+        viewGroup2 = (CustomViewGroup) findViewById(R.id.ViewGroup2);
+        viewGroup1.setButtonText("Hello");
+        viewGroup2.setButtonText("World");
     }
 
     private void initInstances() {
