@@ -22,6 +22,8 @@ public class SecondActivity extends AppCompatActivity {
         int x = bundle.getInt("x");
         int y = bundle.getInt("y");
         int z = bundle.getInt("z");
+
+        CoordinateSerializable c2 = (CoordinateSerializable) intent.getSerializableExtra("cSerializable");
         initInstance();
     }
 

@@ -18,8 +18,6 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView tvHello;
     TextView edtHello;
@@ -129,7 +127,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     SecondActivity.class);
             intent.putExtra("result",result);
 
-            Coodinate c1 = new Coodinate();
+            //Bundle
+            Coordinate c1 = new Coordinate();
             c1.x = 5;
             c1.y = 10;
             c1.x = 20;
@@ -137,9 +136,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             bundle.putInt("x",c1.x);
             bundle.putInt("y",c1.y);
             bundle.putInt("z",c1.z);
-
             intent.putExtra("cBundle",bundle);
 
+            //Serializable
+            CoordinateSerializable c2 = new CoordinateSerializable();
+            c2.x = 5;
+            c2.y = 10;
+            c2.z = 20;
+            intent.putExtra("cSerializable",c2);
             startActivity(intent);
         }
     }
