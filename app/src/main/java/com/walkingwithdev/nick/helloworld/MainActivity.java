@@ -1,5 +1,6 @@
 package com.walkingwithdev.nick.helloworld;
 
+import android.content.Intent;
 import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,18 +37,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //initInstances();
+        initInstances();
 
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         int width = size.x;
         int height = size.y;
-        Toast.makeText(MainActivity.this,"x = " + width + "  y = " + height,Toast.LENGTH_LONG).show();
-        viewGroup1 = (CustomViewGroup) findViewById(R.id.ViewGroup1);
-        viewGroup2 = (CustomViewGroup) findViewById(R.id.ViewGroup2);
-        viewGroup1.setButtonText("Hello");
-        viewGroup2.setButtonText("World");
+        Toast.makeText(MainActivity.this, "x = " + width + "  y = " + height, Toast.LENGTH_LONG).show();
+
     }
 
     private void initInstances() {
@@ -78,6 +76,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnCalculate.setOnClickListener(this);
 
+        viewGroup1 = (CustomViewGroup) findViewById(R.id.ViewGroup1);
+        viewGroup2 = (CustomViewGroup) findViewById(R.id.ViewGroup2);
+        viewGroup1.setButtonText("Hello");
+        viewGroup2.setButtonText("World");
     }
 
     @Override
@@ -118,18 +120,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             tvResult.setText(result + "");
+
+            Log.d("Calculation","Result = " + result);
+
+            Toast.makeText(MainActivity.this,"Result = " + result,Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(MainActivity.this,
+                    SecondActivity.class);
+            intent.putExtra("result",result);
+            startActivity(intent);
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_settings){
+        if (item.getItemId() == R.id.action_settings) {
 
             return true;
         }
