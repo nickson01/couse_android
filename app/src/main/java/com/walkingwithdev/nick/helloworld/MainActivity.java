@@ -152,7 +152,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             c3.y = 10;
             c3.x = 20;
             intent.putExtra("cParceable",c3);
-            startActivity(intent);
+            startActivityForResult(intent,12345);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 12345){
+            if (resultCode == RESULT_OK){
+                //get Extra form intent
+                Toast.makeText(MainActivity.this,data.getStringExtra("result"),Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
