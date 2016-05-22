@@ -144,6 +144,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             c2.y = 10;
             c2.z = 20;
             intent.putExtra("cSerializable",c2);
+
+            //CoordinateParcelable
+            CoordinateParcelable c3 = new CoordinateParcelable();
+            c3.x = 5;
+            c3.y = 10;
+            c3.x = 20;
+            intent.putExtra("cParceable",c3);
             startActivity(intent);
         }
     }
