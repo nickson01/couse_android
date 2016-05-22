@@ -3,12 +3,15 @@ package com.walkingwithdev.nick.helloworld;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
 
     int sum = 0;
     TextView txtResult;
+    Button btnOk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,12 @@ public class SecondActivity extends AppCompatActivity {
     private void initInstance() {
         txtResult = (TextView) findViewById(R.id.txtResult);
         txtResult.setText("Result = " + sum);
-
+        btnOk = (Button) findViewById(R.id.btnOk);
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 }

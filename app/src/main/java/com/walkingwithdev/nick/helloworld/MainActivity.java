@@ -2,6 +2,7 @@ package com.walkingwithdev.nick.helloworld;
 
 import android.content.Intent;
 import android.graphics.Point;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Html;
@@ -151,7 +152,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             c3.y = 10;
             c3.x = 20;
             intent.putExtra("cParceable",c3);
-            //startActivity(intent);
+            startActivity(intent);
         }
     }
 
