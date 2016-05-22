@@ -6,7 +6,9 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v4.app.BundleCompat;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.GestureDetector;
@@ -158,15 +160,18 @@ public class CustomView extends View {
     @Override
     protected Parcelable onSaveInstanceState() {
         Parcelable superState = super.onSaveInstanceState();
-        CustomViewSavedState savedState = new CustomViewSavedState(superState);
-        savedState.setBlue(isBlue);
+        BundleSavesState savedState = new BundleSavesState(superState);
+        Bundle bundle = new Bundle();
+        bundle.putBoolean("inBlue",isBlue);
+        savedState.setBundle(bundle);
         return savedState;
     }
 
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
-        CustomViewSavedState savedState = (CustomViewSavedState) state;
+        BundleSavesState savedState = (BundleSavesState) state;
         super.onRestoreInstanceState(savedState.getSuperState());
-        isBlue = savedState.isBlue();
+        Bundle bundle = savedState.getBundle();
+        isBlue = bundle.getBoolean("isBlue");
     }
 }
